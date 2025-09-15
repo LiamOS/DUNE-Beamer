@@ -1,0 +1,178 @@
+% Written by Liam O'Sullivan for the DUNE collaboration.
+% Please direct any bugs, issues, criticism, hate mail to liam.osullivan@uni-mainz.de
+% 
+% IMPORTANT: To make this template yours, edit the fields between TODO and /TODO
+
+\documentclass[14pt,aspectratio=169]{beamer} % I'm forcing 16:9 aspect ratio because it's not 2005 anymore
+\beamertemplatenavigationsymbolsempty % Disables forward/backword/etc clickable links on each slide
+
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{fontspec,xcolor}
+
+%%% TODO 1
+\newcommand{\Dtitle}{\text  {Riding a Bicycle in 4-D}}
+\newcommand{\Dname}{\text   {A.\ Hofmann}}
+\newcommand{\Dsession}{\text{Sandoz Labs, Basel}}
+\newcommand{\Ddate}{\text   {19^\text{th} April 1943}}
+%\newcommand{\Ddate}{\today} % If you compile your slides the day of (like me!), use this
+%\newcommand{\Dname}{Name Surname \\ \small{he/she/they/etc.}} % With pronouns for those who prefer
+%%% /TODO 1
+
+%\usefonttheme{Sans}
+%\definecolor{Dorange}{HTML}{CD0029}
+\definecolor{DBlue}{HTML}{0072B2}
+\definecolor{DRed}{HTML}{D55E00}
+\definecolor{DOrange}{HTML}{E69F00}
+\definecolor{DBlack}{HTML}{000000}
+\definecolor{DSkyblue}{HTML}{56B3E9}
+\definecolor{DGreen}{HTML}{009E73}
+\definecolor{DYellow}{HTML}{F0E442}
+\definecolor{DVermillion}{HTML}{CC79A7}
+\definecolor{DBackgroundColour}{HTML}{F0F0F0}
+
+%% Define some slide colours, bullet points style, etc.
+%\setbeamercolor{normal text}{fg=mgrey}
+\setbeamertemplate{itemize item}{\color{DBlue}$\blacktriangleright$}
+%\setbeamertemplate{itemize item}{\color{DBlue}\circle}
+\setbeamertemplate{itemize subitem}{\color{DBlue}$\blacktriangleright$}
+\setbeamertemplate{itemize subsubitem}{\color{DBlue}$\blacktriangleright$}
+\setbeamercolor{frametitle}{fg=DRed}
+\setbeamercolor{background canvas}{bg=DBackgroundColour} % Set slide background to off-white for readability
+\usebeamercolor[fg]{normal text}
+%% Define the bottom part of our slides
+\setbeamertemplate{footline}{
+  {\footnotesize
+    \begin{center}\tikz\fill[DRed] (2.2,0.0) rectangle (16.5,0.05);\end{center} % The big orange line
+    \vspace{-3pt}
+    \hspace*{25.8pt}{\color{DRed}\insertframenumber\hspace{40pt}\Dtitle ~| \Dname }% Slide no., title, name
+    \vspace{2mm} % extra bottom space
+    %
+    % Include the DUNE logo:
+    \tikz[remember picture,overlay] \node at (6.1,0.1){\includegraphics[height=7mm]{logos/DUNE-Logo.png}};
+    %\tikz[remember picture,overlay] \node at (6.1,0.1){\includegraphics[height=7mm]{logos/DUNE-Logo-Pride.png}}; % Pride version
+    %%% TODO 2
+    % Include your institute logo: ( Your logo may shift due to different aspect ratio, edit the x value to move (bigger->right)
+    \tikz[remember picture,overlay] \node at (3.5,0.1){\includegraphics[height=7mm]{logos/JGU-Logo.png}};
+    %
+    %!!! FERMILAB !!! logo here, uncomment:
+    %\tikz[remember picture,overlay] \node at (3.8,0.1){\includegraphics[height=7mm]{logos/FNAL-Logo.png}}; %FNAL logo for common use
+                                             %  ^ edit this x value to move if space for another logo needed
+    %% /TODO 2
+  }
+}
+
+%\usepackage{bbding}
+%\setbeamertemplate{itemize item}[checkmark]
+%\setbeamertemplate{itemize subitem}[$\checkmark$]
+%\def\labelitemi{\checkmark}
+%\AtBeginEnvironment{block}{
+%  \setbeamertemplate{itemize item}{\circle}
+%}
+
+
+
+% packages, font, color, and newcommands
+\usepackage{amsfonts, amsmath, oldgerm, lmodern}
+%\usefonttheme{serif}
+
+% document body
+\begin{document}
+
+{ %% TITLE SLIDE
+  \setbeamertemplate{headline}{
+      \vspace{3mm}%
+      \tikz[remember picture,overlay] \node at (11.53,-0.2){\includegraphics[height=3mm]{logos/DUNE-Text.png}};
+      \begin{center}\tikz\fill[DRed] (2.2,4.8) rectangle (16.5,4.85);\end{center} % The big orange line
+  }
+  \setbeamertemplate{footline}{
+    {\footnotesize
+      \begin{center}\tikz\fill[DRed] (2.2,0.0) rectangle (16.5,0.05);\end{center} % The big orange line
+      \vspace{-3pt}
+        \hspace*{25.8pt}{\color{DRed}\insertframenumber\hspace{40pt}\Dtitle ~| \Dname }% Slide no., title, name
+      \vspace{2mm} % extra bottom space
+      %
+      % Include the DUNE logo:
+      \tikz[remember picture,overlay] \node at (6.1,0.1){\includegraphics[height=7mm]{logos/DUNE-Logo.png}};
+      %\tikz[remember picture,overlay] \node at (6.1,0.1){\includegraphics[height=7mm]{logos/DUNE-Logo-Pride.png}}; % Pride version
+      %
+    }
+  }
+  \begin{frame}
+      {\color{DRed} \fontsize{28}{36} \Dtitle }
+
+      {\color{DRed} \fontsize{20}{26} \Dname }
+
+      {\color{DRed} \fontsize{20}{26} \Dsession }
+  \end{frame}
+  \addtocounter{framenumber}{-1} % Title slide doesn't count
+} %% END TITLE SLIDE
+
+% EXAMPLE: Basic bullet points slide
+\begin{frame}{\Dtitle}
+  Shooting out some bullet points
+  \begin{itemize}
+    \item Sample point
+    \item Sampler point
+    \begin{itemize}
+      \item Yo dawg we heard you like bullet points
+      \item so we put some bullet points
+      \begin{itemize}
+        \item inside your bullet points
+      \end{itemize}
+    \end{itemize}
+    \item Back out
+  \end{itemize}
+\end{frame}
+
+% EXAMPLE: Two column slide with minipage
+\begin{frame}{\Dtitle}
+  \begin{minipage}[t]{0.49\textwidth} % Minipage for first column, can change 0.49 to make column wider/narrower
+    The good
+    \begin{itemize}
+      \item Apples
+      \item Wind in my hair
+      \item A nice chair
+    \end{itemize}
+  \end{minipage}%
+  \begin{minipage}[t]{0.49\textwidth} % Minipage for second column
+    The bad
+    \begin{itemize}
+      \item Increased heart rate
+      \item Vasoconstriction
+      \item Incomprehensible terror
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+
+% EXAMPLE: Slide with bullets and an image
+\begin{frame}{DUNE/dune-tms on github}
+  \begin{minipage}[t]{0.37\textwidth}
+    \leavevmode \vskip 0pt \vskip -\baselineskip%
+    what I love about DUNE
+    \begin{itemize}
+      \item TODO
+      \item TODO
+      \item TODO
+      \item ????
+      \item Profit!
+    \end{itemize}
+  \end{minipage}%
+  \begin{minipage}[t]{0.57\textwidth}%
+    \leavevmode%
+    \vskip 0pt%
+    \vskip -\baselineskip%
+      \includegraphics[width=\textwidth]{logos/DUNE-Logo-Pride-Text.png}
+  \end{minipage}%
+\end{frame}
+
+\begin{frame}{Quick Maffs}
+  Do all your favourite \LaTeX \ things!
+
+  \begin{equation}
+    \left(\frac{d \sigma^\tau}{dx}\right)_i = \frac{1}{\Delta x_i \Phi T_\tau} \sum_j \frac{N_{i,j}^{\text{ signal,}\tau}}{\epsilon_{i,j}^\tau \Delta y_j}
+  \end{equation}
+
+\end{frame}
+
+\end{document}
